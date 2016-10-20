@@ -1,0 +1,54 @@
+html {
+  background: url("https://c2.staticflickr.com/6/5692/21342201074_79a23a40c6_b.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  font-family: "Helvetica", Helvetica, sans-serif;
+  margin: 0px;
+  text-shadow: 0 0 20px rgba(0,0,0,0.2);
+  text-shadow: 2px 2px 8px #222;
+}
+
+#mid-box {
+  font-size: 3em;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+}
+#m-text {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+  background: 0;
+  border: 0;
+  border-bottom: 4px solid white;
+  color: white;
+  font-weight: 500;
+  outline: 0;
+  text-align: center;
+  font-size: 120%;
+  line-height: 120%;
+  width: 13.8em;
+}
+
+.show {
+  display: block;
+  -webkit-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+  -o-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+.hide {
+  display: none;
+  -webkit-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+  -o-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
