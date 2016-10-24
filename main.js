@@ -115,6 +115,12 @@ var authoredQuotes = [{ author: "Albert Einstein",
                         quote: "Feeling good about ourselves is as essential in our being able to love others."
                       }];
 
+var backgroundUrls = [
+    "https://c2.staticflickr.com/6/5692/21342201074_79a23a40c6_b.jpg",
+    "https://farm9.staticflickr.com/8483/29843026326_0487e47ce6_k_d.jpg",
+    "https://farm9.staticflickr.com/8199/29877906025_6c75548a2a_k_d.jpg"
+  ];
+
 //based on MDN's random funtion
 function getRandomIndex(arr) {
     var min = 0;
@@ -122,12 +128,16 @@ function getRandomIndex(arr) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+var background = document.getElementById("main");
+background.style.background = `url('${backgroundUrls[getRandomIndex(backgroundUrls)]}') no-repeat center center fixed`;
+background.style.backgroundSize = 'cover';
 var quote = authoredQuotes[getRandomIndex(authoredQuotes)];
 var quoteP = document.getElementById('quote');
 var authorP = document.getElementById('author');
 quoteP.innerHTML = quote.quote;
 authorP.innerHTML = quote.author;
 
+//search google
 document.getElementById('form').addEventListener("submit", function() {
   var q = document.getElementById('m-text').value;
   console.log('q', q);
