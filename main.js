@@ -116,7 +116,6 @@ var authoredQuotes = [{ author: "Albert Einstein",
                       }];
 
 var backgroundUrls = [
-    "https://c2.staticflickr.com/6/5692/21342201074_79a23a40c6_b.jpg",
     "https://farm9.staticflickr.com/8483/29843026326_0487e47ce6_k_d.jpg",
     "https://farm9.staticflickr.com/8199/29877906025_6c75548a2a_k_d.jpg"
   ];
