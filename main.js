@@ -118,13 +118,12 @@ var authoredQuotes = [{ author: "Albert Einstein",
 var backgroundUrls = [
     "https://farm9.staticflickr.com/8483/29843026326_0487e47ce6_k_d.jpg",
     "https://farm9.staticflickr.com/8199/29877906025_6c75548a2a_k_d.jpg"
-  ];
+];
 
 //based on MDN's random funtion
 function getRandomIndex(arr) {
-    var min = 0;
     var max = arr.length-1;
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max + 1));
 }
 
 var background = document.getElementById("main");
