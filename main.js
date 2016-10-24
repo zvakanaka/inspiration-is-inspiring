@@ -72,7 +72,7 @@ var authoredQuotes = [{ author: "Albert Einstein",
                       },
                       {
                         author: "Nelson Mandela",
-                        quote: "It always seems impossible until it's done"
+                        quote: "It always seems impossible until it's done."
                       },
                       {
                         author: "Nelson Mandela",
