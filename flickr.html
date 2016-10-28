@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Flickr JSON</title>
+  </head>
+<body>
+  <script>
+  function jsonFlickrApi(rsp) {
+    window.rsp = rsp;
+    var s = "";
+    // http://farm{id}.static.flickr.com/{server-id}/{id}_{secret}_[mstb].jpg
+    // http://www.flickr.com/photos/{user-id}/{photo-id}
+    s = "total number is: " + rsp.photos.photo.length + "<br/>";
+
+    for (var i=0; i < rsp.photos.photo.length; i++) {
+      photo = rsp.photos.photo[i];
+      t_url = "http://farm" + photo.farm + ".static.flickr.com/" +
+        photo.server + "/" + photo.id + "_" + photo.secret + "_" + "t.jpg";
+      p_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+      s +=  '<a href="' + p_url + '">' + '<img alt="'+ photo.title +
+        '"src="' + t_url + '"/>' + '</a>';
+    }
+    document.writeln(s);
+  }
+
+  var apiCall = fetch(
+    "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=5d75a7dbea79faf6d6d41d421c9cab5b&tags=stars&privacy_filter=1&safe_search=3&content_type=1&format=json&nojsoncallback=1&api_sig=36f5a22ec0b2abd924e999bd98f15f40"
+  );
+
+  apiCall.then(function(response) {
+    return response.json().then(function(json) {
+      // photo is a list of photos.
+      return json;
+    });
+  }).then(function(photos) {
+    jsonFlickrApi(photos);
+  })
+  .catch(err => {
+      console.log('ERROR:',err);
+    });
+  </script>
+  <script src="http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key={API_key}&tags=flower&per_page=50&format=json"></script>
+</body>
+
+</html>
