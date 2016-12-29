@@ -112,7 +112,7 @@ var authoredQuotes = [{ author: "Albert Einstein",
                       },
                       {
                         author: "Mr. Rogers",
-                        quote: "Feeling good about ourselves is as essential in our being able to love others."
+                        quote: "Feeling good about ourselves is essential in our being able to love others."
                       }];
 
 var backgroundUrls = [
