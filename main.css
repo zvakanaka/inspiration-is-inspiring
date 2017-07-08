@@ -15,22 +15,6 @@ body {
   font-weight: 500;
 }
 
-#m-text {
-  width: 50%;
-  margin: 0 auto;
-  display: block;
-  background: 0;
-  border: 0;
-  border-bottom: 4px solid white;
-  color: white;
-  font-weight: 500;
-  outline: 0;
-  text-align: center;
-  font-size: 120%;
-  line-height: 120%;
-  width: 13.8em;
-}
-
 #quote {
     margin-bottom: 10px;
 }
