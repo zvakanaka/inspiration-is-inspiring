@@ -1,4 +1,4 @@
-const SERVER_NAME = 'https://howtoterminal.com/inspiration';
+const SERVER_NAME = 'https://inspiration-api.herokuapp.com';
 // const SERVER_NAME = 'http://localhost:5555';
 const BASE_URL = `${SERVER_NAME}`;
 let background = document.getElementById("main");
