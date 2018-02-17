@@ -1,26 +1,41 @@
-const SERVER_NAME = 'https://inspiration-api.herokuapp.com';
-// const SERVER_NAME = 'http://localhost:5555';
-const BASE_URL = `${SERVER_NAME}`;
 let background = document.getElementById("main");
 
 function getJSONFromAPI(path) {
-  return fetch(`${BASE_URL}${path}`, { mode: 'cors' })
+  return fetch(path, { mode: 'cors' })
     .then(res => {
       if (typeof res === 'string') return false;
       return res.json();
     });
 }
 
-getJSONFromAPI('/image')
-  .then(backgroundURL => {
-    background.style.background = `url('${backgroundURL}') no-repeat center center fixed`;
-    background.style.backgroundSize = 'cover';
-  });
+const apiMap = [
+  {
+    name: 'default',
+    url: 'https://inspiration-api.herokuapp.com',
+    description: 'Wise old men.'
+  },
+  {
+    name: 'lds',
+    url: 'https://lds-inspiration-api.herokuapp.com',
+    descrition: 'Gospel quotes from General Conferences'
+  },
+  {
+    name: 'alternative'
+  }
+];
 
-getJSONFromAPI('/quote')
-  .then(quote => {
-    let quoteP = document.getElementById('quote');
-    let authorP = document.getElementById('author');
-    quoteP.innerHTML = quote.quote;
-    authorP.innerHTML = quote.author;
-  });
+chrome.storage.sync.get(apiMap[0], function(item) {
+  getJSONFromAPI(`${item.url}/image`)
+    .then(backgroundURL => {
+      background.style.background = `url('${backgroundURL}') no-repeat center center fixed`;
+      background.style.backgroundSize = 'cover';
+    });
+
+  getJSONFromAPI(`${item.url}/quote`)
+    .then(quote => {
+      let quoteP = document.getElementById('quote');
+      let authorP = document.getElementById('author');
+      quoteP.innerHTML = quote.quote;
+      authorP.innerHTML = quote.author;
+    });
+});
