@@ -27,7 +27,13 @@ body {
     font-size: 60%;
     margin-top: 10px;
 }
-
+footer {
+  position: fixed;
+  bottom: 2em;
+  font-family: monospace;
+  color: red;
+  left: 50%
+}
 .show {
   display: block;
   -webkit-transition: all 350ms ease;

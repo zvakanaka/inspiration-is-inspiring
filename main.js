@@ -1,4 +1,6 @@
-let background = document.getElementById("main");
+const background = document.getElementById("main");
+const quoteP = document.getElementById('quote');
+const authorP = document.getElementById('author');
 
 function getJSONFromAPI(path) {
   return fetch(path, { mode: 'cors' })
@@ -29,13 +31,19 @@ chrome.storage.sync.get(apiMap[0], function(item) {
     .then(backgroundURL => {
       background.style.background = `url('${backgroundURL}') no-repeat center center fixed`;
       background.style.backgroundSize = 'cover';
+    }).catch(err => {
+      background.style.background = 'black';
+      const footer = document.querySelector('footer');
+      footer.textContent = `Error: ${err}`;
     });
 
   getJSONFromAPI(`${item.url}/quote`)
     .then(quote => {
-      let quoteP = document.getElementById('quote');
-      let authorP = document.getElementById('author');
-      quoteP.innerHTML = quote.quote;
-      authorP.innerHTML = quote.author;
+      quoteP.textContent = quote.quote;
+      authorP.textContent = quote.author;
+    }).catch(err => {
+      background.style.background = 'black';
+      const footer = document.querySelector('footer');
+      footer.textContent = `Error; ${err}`;
     });
 });
