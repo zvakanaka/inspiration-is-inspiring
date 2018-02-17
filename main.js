@@ -26,15 +26,20 @@ const apiMap = [
   }
 ];
 
+function setError(err) {
+  background.style.background = 'black';
+  const footer = document.querySelector('footer');
+  footer.textContent = `Error; ${err}`;
+  authorP.textContent = '';
+}
+
 chrome.storage.sync.get(apiMap[0], function(item) {
   getJSONFromAPI(`${item.url}/image`)
     .then(backgroundURL => {
       background.style.background = `url('${backgroundURL}') no-repeat center center fixed`;
       background.style.backgroundSize = 'cover';
     }).catch(err => {
-      background.style.background = 'black';
-      const footer = document.querySelector('footer');
-      footer.textContent = `Error: ${err}`;
+      setError(err);
     });
 
   getJSONFromAPI(`${item.url}/quote`)
@@ -42,8 +47,6 @@ chrome.storage.sync.get(apiMap[0], function(item) {
       quoteP.textContent = quote.quote;
       authorP.textContent = quote.author;
     }).catch(err => {
-      background.style.background = 'black';
-      const footer = document.querySelector('footer');
-      footer.textContent = `Error; ${err}`;
+      setError(err);
     });
 });
