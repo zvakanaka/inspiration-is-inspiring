@@ -5,9 +5,14 @@ const apiMap = [
     description: 'Wise old men.'
   },
   {
+    name: 'general-conference-2018',
+    url: 'http://i.boyscouts.rocks/',
+    description: 'The Church of Jesus Christ of Latter-day Saints - General Conference October, 2018'
+  },
+  {
     name: 'lds',
     url: 'https://lds-inspiration-api.herokuapp.com',
-    descrition: 'Gospel quotes from General Conferences'
+    description: 'Gospel quotes from General Conferences'
   },
   {
     name: 'alternative'
