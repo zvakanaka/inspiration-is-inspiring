@@ -27,6 +27,24 @@ body {
     font-size: 60%;
     margin-top: 10px;
 }
+a:link {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+a:active {
+  text-decoration: underline;
+  color: white;
+}
 footer {
   position: fixed;
   bottom: 2em;
