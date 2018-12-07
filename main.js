@@ -1,6 +1,6 @@
 const background = document.getElementById("main");
 const quoteP = document.getElementById('quote');
-const authorP = document.getElementById('author');
+const authorEl = document.getElementById('author');
 
 function getJSONFromAPI(path) {
   return fetch(path, { mode: 'cors' })
@@ -30,7 +30,7 @@ function setError(err) {
   background.style.background = 'black';
   const footer = document.querySelector('footer');
   footer.textContent = `Error; ${err}`;
-  authorP.textContent = '';
+  authorEl.textContent = '';
 }
 
 chrome.storage.sync.get(apiMap[0], function(item) {
@@ -45,7 +45,8 @@ chrome.storage.sync.get(apiMap[0], function(item) {
   getJSONFromAPI(`${item.url}/quote`)
     .then(quote => {
       quoteP.textContent = quote.quote;
-      authorP.textContent = quote.author;
+      authorEl.textContent = quote.author;
+      if (quote.hasOwnProperty('link')) authorEl.href = quote.link;
     }).catch(err => {
       setError(err);
     });
